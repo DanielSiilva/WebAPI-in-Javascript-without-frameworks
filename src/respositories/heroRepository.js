@@ -1,4 +1,4 @@
-const { readFile, writeFile } = require("fs");
+const { readFile, writeFile } = require("fs").promises;
 
 class HeroRopository {
   constructor({ file }) {
@@ -6,7 +6,8 @@ class HeroRopository {
   }
 
   async _currentFileContent() {
-    return JSON.parse(await readFile(this.file));
+    const content = await readFile(this.file, "utf8");
+    return JSON.parse(content);
   }
 
   async find(itemId) {

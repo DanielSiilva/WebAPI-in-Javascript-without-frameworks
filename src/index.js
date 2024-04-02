@@ -1,5 +1,5 @@
 const http = require("http");
-const PORT = 3000;
+const PORT = 4000;
 const DEFAULT_HEADER = { "Content-Type": "application/json" };
 
 const HeroFactory = require("./factories/heroFactory");
