@@ -7,12 +7,10 @@ class Hero {
   }
 
   isValid() {
-    //getOwnPropertyNames => retorna somente as propriedades criadas, sem funcoes!
     const propertyNames = Object.getOwnPropertyNames(this);
     const amountInvalid = propertyNames
-      //!! => converte em booleano
       .map((property) => (!!this[property] ? null : `${property} is missing!`))
-      .filter((item) => !item);
+      .filter((item) => !!item);
 
     return {
       valid: amountInvalid.length === 0,
@@ -22,3 +20,7 @@ class Hero {
 }
 
 module.exports = Hero;
+
+// const hero = new Hero({ name: "Chapolin", age: 100, power: "SuperForça" });
+// console.log("valid", hero.isValid());
+// console.log("valid", hero);
