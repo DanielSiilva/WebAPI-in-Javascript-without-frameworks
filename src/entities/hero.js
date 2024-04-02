@@ -7,8 +7,10 @@ class Hero {
   }
 
   isValid() {
+    //getOwnPropertyNames => retorna somente as propriedades criadas, sem funcoes!
     const propertyNames = Object.getOwnPropertyNames(this);
     const amountInvalid = propertyNames
+      //!! => converte em booleano
       .map((property) => (!!this[property] ? null : `${property} is missing!`))
       .filter((item) => !item);
 
